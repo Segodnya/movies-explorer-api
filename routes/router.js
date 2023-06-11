@@ -15,7 +15,9 @@ const { errorLogger, requestLogger } = require('../middlewares/logger');
 router.use(requestLogger);
 router.use(cors());
 
+// авторизация пользователя
 router.post('/signin', validateLogin, login);
+// регистрация пользователя
 router.post('/signup', validateRegister, createUser);
 
 router.use(auth);

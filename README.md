@@ -1,5 +1,9 @@
 # movies-explorer-api
 
+## Server Domain
+
+...
+
 ## Endpoints
 
 - возвращает информацию о пользователе (email и имя)
@@ -16,3 +20,9 @@
 
 - удаляет сохранённый фильм по id
   `DELETE /movies/_id`
+
+- регистрация пользователя
+  `POST /signup`
+
+- авторизация пользователя
+  `POST /signin`
