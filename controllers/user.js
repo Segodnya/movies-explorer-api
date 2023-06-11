@@ -61,9 +61,13 @@ module.exports.login = (req, res, next) => {
         if (!matched) {
           return next(new UnauthorizedError('Неверная почта или пароль'));
         }
-        const token = jwt.sign({ _id: user._id }, process.env.NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-string', {
-          expiresIn: '7d',
-        });
+        const token = jwt.sign(
+          { _id: user._id },
+          process.env.NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-string',
+          {
+            expiresIn: '7d',
+          },
+        );
         return res.send({ token });
       });
     })

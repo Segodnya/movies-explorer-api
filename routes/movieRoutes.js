@@ -1,7 +1,6 @@
 const movieRoutes = require('express').Router();
 
-// eslint-disable-next-line object-curly-newline
-const { getMovies, deleteMovie, createMovie } = require('../controllers/card');
+const { getMovies, deleteMovie, createMovie } = require('../controllers/movie');
 const { validateMovieId, validateMovie } = require('../utils/validators/movieValidator');
 
 // возвращает все сохранённые текущим  пользователем фильмы

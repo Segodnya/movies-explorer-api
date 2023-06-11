@@ -1,6 +1,5 @@
 const userRoutes = require('express').Router();
 
-// eslint-disable-next-line object-curly-newline
 const { updateUserName, getMe } = require('../controllers/user');
 const { validateUserInfo } = require('../utils/validators/userValidator');
 
