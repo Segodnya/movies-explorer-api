@@ -2,7 +2,7 @@
 
 ## Server Domain
 
-...
+https://api.sgdn.nomoredomains.rocks
 
 ## Endpoints
 
