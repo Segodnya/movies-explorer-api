@@ -23,7 +23,7 @@ module.exports.createMovie = (req, res, next) => {
 module.exports.deleteMovie = (req, res, next) => {
   const currentUserId = req.user._id;
 
-  Movie.findById(req.params.movieId)
+  Movie.findById(Number(req.params.movieId))
     .orFail()
     .then((movie) => {
       if (movie.owner.toString() !== currentUserId) {
