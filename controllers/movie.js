@@ -29,7 +29,7 @@ module.exports.deleteMovie = (req, res, next) => {
       if (movie.owner.toString() !== currentUserId) {
         throw new ForbiddenError('Нельзя удалить чужую карточку');
       }
-      return Movie.findByIdAndDelete(movie.movieId);
+      return Movie.findByIdAndDelete(Number(movie.movieId));
     })
     .then((deletedMovie) => res.status(DEFAULT_SUCCESS_CODE).send(deletedMovie))
     .catch((err) => {

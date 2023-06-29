@@ -3,7 +3,7 @@ const { URL_REGEXP } = require('../constants');
 
 module.exports.validateMovieId = celebrate({
   params: Joi.object().keys({
-    movieId: Joi.number().required(),
+    movieId: Joi.string().required(),
   }),
 });
 
