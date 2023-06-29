@@ -23,14 +23,15 @@ module.exports.createMovie = (req, res, next) => {
 module.exports.deleteMovie = (req, res, next) => {
   const currentUserId = req.user._id;
 
-  Movie.findById(Number(req.params.movieId))
+  Movie.findById(req.params._id)
     .orFail()
     .then((movie) => {
       if (movie.owner.toString() !== currentUserId) {
         throw new ForbiddenError('Нельзя удалить чужую карточку');
       }
-      return Movie.findByIdAndDelete(Number(movie.movieId));
+      return movie;
     })
+    .then((movie) => movie.deleteOne())
     .then((deletedMovie) => res.status(DEFAULT_SUCCESS_CODE).send(deletedMovie))
     .catch((err) => {
       if (err instanceof mongoose.Error.DocumentNotFoundError) {
